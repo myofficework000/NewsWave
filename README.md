@@ -41,10 +41,10 @@ The NewsWave codebase emphasizes clean code principles and practices, including:
 
 To get started with NewsWave, follow these steps:
 
-1. Clone the repository: `git clone [repository_url]`
-2. Install the necessary dependencies: `[dependency_installation_command]`
-3. Set up the API key for the news service: `[instructions_to_set_api_key]`
-4. Build and run the app on your Android device or emulator: `[build_and_run_command]`
+1. Clone the repository: `git clone
+2. Install the necessary dependencies
+3. Set up the API key for the news service
+4. Build and run the app on your Android device or emulator
 
 ## Demo Video
 https://github.com/myofficework000/NewsWave/assets/51234843/b16cda79-8921-42fb-93d4-f7e69db69d8f
