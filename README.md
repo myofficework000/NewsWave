@@ -58,5 +58,8 @@ The NewsWave codebase is released under the [MIT License](https://opensource.org
 ## Contact
 
 For any questions or support, please contact myofficework000@gmail.com.
+- LinkedIn: [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://www.linkedin.com/[https://www.linkedin.com/in/myofficework/])
+- Medium: [![Medium](https://img.shields.io/badge/Medium-Follow-black?logo=medium)](https://medium.com/[https://medium.com/@myofficework000])
+
 
 Enjoy using NewsWave!
