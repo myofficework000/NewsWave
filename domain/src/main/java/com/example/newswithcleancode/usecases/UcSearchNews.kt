@@ -1,25 +1,25 @@
 package com.example.newswithcleancode.usecases
 
+import com.example.newswithcleancode.model.SearchNews
+import com.example.newswithcleancode.model.SearchRequest
 import com.example.newswithcleancode.repository.NewsRepository
-import com.example.newswithcleancode.utils.formatDate
+import com.example.newswithcleancode.utils.ApiResult
+import com.example.newswithcleancode.utils.toDatePair
 import javax.inject.Inject
 
 class UcSearchNews @Inject constructor(
     private val repository: NewsRepository
 ) {
-    suspend operator fun invoke(
-        keywords: String,
-        start_date: Long? = null,
-        end_date: Long? = null,
-        category: String? = null,
-        country: String? = null,
-        language: String? = null
-    ) = repository.searchNews(
-        keywords,
-        start_date?.formatDate(),
-        end_date?.formatDate(),
-        category,
-        country,
-        language
-    )
+    suspend operator fun invoke(query: SearchRequest): ApiResult<SearchNews> {
+        val dateRange = query.dat_range.toDatePair()
+
+        return repository.searchNews(
+            query.keywords,
+            dateRange.first,
+            dateRange.second,
+            query.category,
+            query.country,
+            query.language
+        )
+    }
 }

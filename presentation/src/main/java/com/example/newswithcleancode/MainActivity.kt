@@ -3,6 +3,10 @@ package com.example.newswithcleancode
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.newswithcleancode.ui.MainPage
 import com.example.newswithcleancode.ui.theme.NewsWithCleanCodeTheme
@@ -14,7 +18,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             NewsWithCleanCodeTheme {
-                MainPage(viewModel())
+                Surface(Modifier.background(MaterialTheme.colorScheme.background)) {
+                    MainPage(viewModel())
+                }
             }
         }
     }

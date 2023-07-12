@@ -2,7 +2,10 @@ package com.example.newswithcleancode.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,6 +19,7 @@ import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.example.newswithcleancode.R
 import com.example.newswithcleancode.model.News
+import com.example.newswithcleancode.utils.extractDate
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
@@ -46,9 +50,11 @@ fun NewsBrief(data: News) {
                 linkTo(start = guide1, end = parent.end)
                 width = Dimension.fillToConstraints
             },
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             Text(data.title, fontWeight = FontWeight.Bold, maxLines = 2, overflow = TextOverflow.Ellipsis)
+            Text(data.published.extractDate(), style = MaterialTheme.typography.labelSmall)
+            Spacer(Modifier.height(4.dp))
             Text(data.description, maxLines = 2, overflow = TextOverflow.Ellipsis)
         }
     }

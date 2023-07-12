@@ -9,6 +9,10 @@ android {
     namespace 'com.example.newswithcleancode'
     compileSdk 33
 
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def currentsApi = properties.getProperty("CURRENTS_API_KEY")
+
     defaultConfig {
         applicationId "com.example.newswithcleancode"
         minSdk 26
@@ -20,6 +24,8 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+
+        resValue "string", "CURRENTS_API_KEY", "\"$currentsApi\""
     }
 
     buildTypes {
@@ -77,6 +83,8 @@ dependencies {
     kapt 'com.google.dagger:hilt-android-compiler:2.45'
 
     testImplementation 'junit:junit:4.13.2'
+    testImplementation 'io.mockk:mockk:1.13.5'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     androidTestImplementation platform('androidx.compose:compose-bom:2022.10.00')
