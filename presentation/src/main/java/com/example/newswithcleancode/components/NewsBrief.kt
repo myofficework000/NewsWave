@@ -5,20 +5,25 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.example.newswithcleancode.R
 import com.example.newswithcleancode.model.News
+import com.example.newswithcleancode.ui.theme.Calisto
+import com.example.newswithcleancode.ui.theme.RockWell
 import com.example.newswithcleancode.utils.extractDate
 
 @OptIn(ExperimentalGlideComposeApi::class)
@@ -46,16 +51,42 @@ fun NewsBrief(data: News) {
         }
 
         Column(
-            Modifier.constrainAs(content){
+            Modifier.constrainAs(content) {
                 linkTo(start = guide1, end = parent.end)
                 width = Dimension.fillToConstraints
             },
             verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
-            Text(data.title, fontWeight = FontWeight.Bold, maxLines = 2, overflow = TextOverflow.Ellipsis)
-            Text(data.published.extractDate(), style = MaterialTheme.typography.labelSmall)
-            Spacer(Modifier.height(4.dp))
-            Text(data.description, maxLines = 2, overflow = TextOverflow.Ellipsis)
+            Text(
+                modifier = Modifier.padding(top = 8.dp, end = 4.dp),
+                text = data.title,
+                maxLines = 2,
+                lineHeight = 18.sp,
+                fontFamily = RockWell,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
+                overflow = TextOverflow.Ellipsis,
+            )
+            Text(
+                modifier = Modifier.padding(top = 6.dp, end = 4.dp),
+                text = data.description ?: "",
+                maxLines = 3,
+                color = Black.copy(alpha = 0.7f),
+                overflow = TextOverflow.Ellipsis,
+                lineHeight = 18.sp,
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Bold,
+                fontFamily = Calisto
+            )
+            Spacer(Modifier.height(1.dp))
+            Text(
+                modifier = Modifier.padding(top = 8.dp),
+                text = data.published.extractDate(),
+                lineHeight = 18.sp,
+                fontSize = 15.sp,
+                color = Color.Gray,
+                fontFamily = Calisto
+            )
         }
     }
 }
