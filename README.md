@@ -5,8 +5,7 @@ Stay informed on global affairs, business updates, tech advancements, and more. 
 
 ## Features
 
-- [x] Get up-to-the-minute news from reliable sources.
-- [x] Stay informed on global affairs, business updates, tech advancements, and more.
+- [x] Get latest news
 - [x] Search for specific news articles based on keywords or topics.
 - [ ] Filter news according to categories such as politics, sports, entertainment, and more.
 - [ ] Customize the app's theme to suit your preference.
@@ -47,9 +46,13 @@ To get started with NewsWave, follow these steps:
 3. Set up the API key for the news service: `[instructions_to_set_api_key]`
 4. Build and run the app on your Android device or emulator: `[build_and_run_command]`
 
+## Demo Video
+https://github.com/myofficework000/NewsWave/assets/51234843/b16cda79-8921-42fb-93d4-f7e69db69d8f
+
 ## Contributing
 
-Contributions to NewsWave are welcome! If you would like to contribute, please follow these guidelines: [link_to_contributing_guidelines]
+Contributions to NewsWave are welcome!
+
 
 ## License
 
